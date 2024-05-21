@@ -1,0 +1,130 @@
+[gd_scene load_steps=5 format=3 uid="uid://dry65metnlik8"]
+
+[ext_resource type="Script" path="res://gui.gd" id="1_mhmv8"]
+[ext_resource type="Texture2D" uid="uid://b3eieck4fi47a" path="res://icon.svg" id="2_4ickc"]
+[ext_resource type="Texture2D" uid="uid://dyd4mr4wmhc6b" path="res://plus.png" id="3_6t5vf"]
+[ext_resource type="Texture2D" uid="uid://se75wwqloop2" path="res://skeleton_knight.png" id="4_wknpn"]
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mhmv8")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 2
+offset_left = 34.0
+offset_top = 30.0
+offset_right = 1118.0
+offset_bottom = 608.0
+theme_override_constants/separation = 50
+
+[node name="SpriteSelection" type="VBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="ChooseSprite" type="TextureButton" parent="Panel/HBoxContainer/SpriteSelection"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture_normal = ExtResource("2_4ickc")
+texture_pressed = ExtResource("2_4ickc")
+texture_hover = ExtResource("2_4ickc")
+texture_focused = ExtResource("2_4ickc")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MoreSprites" type="TextureButton" parent="Panel/HBoxContainer/SpriteSelection"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("3_6t5vf")
+texture_pressed = ExtResource("3_6t5vf")
+texture_hover = ExtResource("3_6t5vf")
+texture_focused = ExtResource("3_6t5vf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="NumDirections" type="LineEdit" parent="Panel/HBoxContainer/SpriteSelection"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+placeholder_text = "# Directions"
+
+[node name="Orientation" type="OptionButton" parent="Panel/HBoxContainer/SpriteSelection"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Vertical"
+popup/item_1/text = "Horizontal"
+popup/item_1/id = 1
+
+[node name="Directions" type="VBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="Direction" type="LineEdit" parent="Panel/HBoxContainer/Directions"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+placeholder_text = "Direction"
+
+[node name="Animations" type="VBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="AnimationDetails" type="HBoxContainer" parent="Panel/HBoxContainer/Animations"]
+layout_mode = 2
+
+[node name="AnimationName" type="LineEdit" parent="Panel/HBoxContainer/Animations/AnimationDetails"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+placeholder_text = "Animation Name"
+
+[node name="NumFrames" type="LineEdit" parent="Panel/HBoxContainer/Animations/AnimationDetails"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+placeholder_text = "# Frames"
+
+[node name="Increment" type="LineEdit" parent="Panel/HBoxContainer/Animations/AnimationDetails"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+placeholder_text = "Increment"
+
+[node name="Looping" type="OptionButton" parent="Panel/HBoxContainer/Animations/AnimationDetails"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "None"
+popup/item_1/text = "Linear"
+popup/item_1/id = 1
+popup/item_2/text = "PingPong"
+popup/item_2/id = 2
+
+[node name="MoreAnimations" type="TextureButton" parent="Panel/HBoxContainer/Animations"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("3_6t5vf")
+texture_pressed = ExtResource("3_6t5vf")
+texture_hover = ExtResource("3_6t5vf")
+texture_focused = ExtResource("3_6t5vf")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Animate" type="Button" parent="Panel"]
+layout_mode = 2
+offset_left = 847.0
+offset_top = 30.0
+offset_right = 950.0
+offset_bottom = 121.0
+text = "Animate"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1032, 90)
+texture = ExtResource("4_wknpn")
+hframes = 28
+vframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
