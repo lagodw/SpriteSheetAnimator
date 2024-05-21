@@ -62,6 +62,7 @@ placeholder_text = "# Directions"
 layout_mode = 2
 item_count = 2
 popup/item_0/text = "Vertical"
+popup/item_0/id = 0
 popup/item_1/text = "Horizontal"
 popup/item_1/id = 1
 
@@ -71,6 +72,25 @@ layout_mode = 2
 [node name="Direction" type="LineEdit" parent="Panel/HBoxContainer/Directions"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+text = "W"
+placeholder_text = "Direction"
+
+[node name="Direction2" type="LineEdit" parent="Panel/HBoxContainer/Directions"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "N"
+placeholder_text = "Direction"
+
+[node name="Direction3" type="LineEdit" parent="Panel/HBoxContainer/Directions"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "S"
+placeholder_text = "Direction"
+
+[node name="Direction4" type="LineEdit" parent="Panel/HBoxContainer/Directions"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "E"
 placeholder_text = "Direction"
 
 [node name="Animations" type="VBoxContainer" parent="Panel/HBoxContainer"]
@@ -82,22 +102,91 @@ layout_mode = 2
 [node name="AnimationName" type="LineEdit" parent="Panel/HBoxContainer/Animations/AnimationDetails"]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
+text = "Idle"
 placeholder_text = "Animation Name"
 
 [node name="NumFrames" type="LineEdit" parent="Panel/HBoxContainer/Animations/AnimationDetails"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
+text = "4"
 placeholder_text = "# Frames"
 
 [node name="Increment" type="LineEdit" parent="Panel/HBoxContainer/Animations/AnimationDetails"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
+text = "0.1"
 placeholder_text = "Increment"
 
 [node name="Looping" type="OptionButton" parent="Panel/HBoxContainer/Animations/AnimationDetails"]
 layout_mode = 2
 item_count = 3
+selected = 1
 popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "Linear"
+popup/item_1/id = 1
+popup/item_2/text = "PingPong"
+popup/item_2/id = 2
+
+[node name="AnimationDetails2" type="HBoxContainer" parent="Panel/HBoxContainer/Animations"]
+layout_mode = 2
+
+[node name="AnimationName" type="LineEdit" parent="Panel/HBoxContainer/Animations/AnimationDetails2"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+text = "Walk"
+placeholder_text = "Animation Name"
+
+[node name="NumFrames" type="LineEdit" parent="Panel/HBoxContainer/Animations/AnimationDetails2"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "4"
+placeholder_text = "# Frames"
+
+[node name="Increment" type="LineEdit" parent="Panel/HBoxContainer/Animations/AnimationDetails2"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "0.1"
+placeholder_text = "Increment"
+
+[node name="Looping" type="OptionButton" parent="Panel/HBoxContainer/Animations/AnimationDetails2"]
+layout_mode = 2
+item_count = 3
+selected = 1
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "Linear"
+popup/item_1/id = 1
+popup/item_2/text = "PingPong"
+popup/item_2/id = 2
+
+[node name="AnimationDetails3" type="HBoxContainer" parent="Panel/HBoxContainer/Animations"]
+layout_mode = 2
+
+[node name="AnimationName" type="LineEdit" parent="Panel/HBoxContainer/Animations/AnimationDetails3"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+text = "Attack"
+placeholder_text = "Animation Name"
+
+[node name="NumFrames" type="LineEdit" parent="Panel/HBoxContainer/Animations/AnimationDetails3"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "4"
+placeholder_text = "# Frames"
+
+[node name="Increment" type="LineEdit" parent="Panel/HBoxContainer/Animations/AnimationDetails3"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "0.1"
+placeholder_text = "Increment"
+
+[node name="Looping" type="OptionButton" parent="Panel/HBoxContainer/Animations/AnimationDetails3"]
+layout_mode = 2
+item_count = 3
+selected = 1
+popup/item_0/text = "None"
+popup/item_0/id = 0
 popup/item_1/text = "Linear"
 popup/item_1/id = 1
 popup/item_2/text = "PingPong"
@@ -115,9 +204,9 @@ stretch_mode = 5
 
 [node name="Animate" type="Button" parent="Panel"]
 layout_mode = 2
-offset_left = 847.0
+offset_left = 870.0
 offset_top = 30.0
-offset_right = 950.0
+offset_right = 973.0
 offset_bottom = 121.0
 text = "Animate"
 
