@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://chv216g7i4urw"]
+
+[ext_resource type="Texture2D" uid="uid://jilm3r10ccds" path="res://None.png" id="1_awjo6"]
+[ext_resource type="Texture2D" uid="uid://c1o2j07i74qa5" path="res://Linear.png" id="2_4fu0p"]
+[ext_resource type="Texture2D" uid="uid://b4c4tuuekxpth" path="res://PingPong.png" id="3_asfw5"]
+
+[node name="AnimationDetails" type="HBoxContainer"]
+offset_right = 552.0
+offset_bottom = 45.0
+
+[node name="AnimationName" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+placeholder_text = "Animation Name"
+
+[node name="NumFrames" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+placeholder_text = "# Frames"
+
+[node name="Increment" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+placeholder_text = "Increment"
+
+[node name="Looping" type="OptionButton" parent="."]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "None"
+popup/item_0/icon = ExtResource("1_awjo6")
+popup/item_0/id = 0
+popup/item_1/text = "Linear"
+popup/item_1/icon = ExtResource("2_4fu0p")
+popup/item_1/id = 1
+popup/item_2/text = "PingPong"
+popup/item_2/icon = ExtResource("3_asfw5")
+popup/item_2/id = 2

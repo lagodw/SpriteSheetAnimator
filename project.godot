@@ -11,6 +11,10 @@ config_version=5
 [application]
 
 config/name="SpriteSheetAnimator"
-run/main_scene="res://gui.tscn"
+run/main_scene="res://addons/spritesheetanimator/gui.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/spritesheetanimator/plugin.cfg")
