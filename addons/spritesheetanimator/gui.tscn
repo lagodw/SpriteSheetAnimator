@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dry65metnlik8"]
+[gd_scene load_steps=4 format=3 uid="uid://dry65metnlik8"]
 
-[ext_resource type="Script" path="res://gui.gd" id="1_mhmv8"]
-[ext_resource type="Texture2D" uid="uid://dyd4mr4wmhc6b" path="res://plus.png" id="3_6t5vf"]
+[ext_resource type="Script" path="res://addons/spritesheetanimator/gui.gd" id="1_u5dvf"]
+[ext_resource type="Texture2D" uid="uid://dyd4mr4wmhc6b" path="res://addons/spritesheetanimator/icons/plus.png" id="2_yb8tn"]
+[ext_resource type="PackedScene" uid="uid://chv216g7i4urw" path="res://addons/spritesheetanimator/animation_details.tscn" id="3_2748m"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -12,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_mhmv8")
+script = ExtResource("1_u5dvf")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -42,20 +43,34 @@ layout_mode = 2
 [node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer/SpriteScroll/SpriteSelection"]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
-text = "SpriteSheet Orientation:"
+text = "SpriteSheet Layout:"
 autowrap_mode = 3
 
-[node name="Orientation" type="OptionButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/SpriteScroll/SpriteSelection"]
+[node name="Layout" type="OptionButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/SpriteScroll/SpriteSelection"]
 layout_mode = 2
 size_flags_vertical = 0
 item_count = 2
 selected = 0
-popup/item_0/text = "Vertical"
+popup/item_0/text = "Horizontal"
 popup/item_0/id = 0
-popup/item_1/text = "Horizontal"
+popup/item_1/text = "Vertical"
 popup/item_1/id = 1
 
 [node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer/SpriteScroll/SpriteSelection"]
+layout_mode = 2
+text = "Existing Animations:"
+
+[node name="Existing" type="OptionButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/SpriteScroll/SpriteSelection"]
+layout_mode = 2
+size_flags_vertical = 0
+item_count = 2
+selected = 0
+popup/item_0/text = "Overwrite"
+popup/item_0/id = 0
+popup/item_1/text = "Skip"
+popup/item_1/id = 1
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer/SpriteScroll/SpriteSelection"]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 text = "Sprites to Animate:"
@@ -73,32 +88,52 @@ text = "Directions"
 
 [node name="Direction" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
 layout_mode = 2
-text = "N"
+text = "W"
 placeholder_text = "Direction"
 
 [node name="Direction2" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
 layout_mode = 2
-text = "E"
+text = "NW"
 placeholder_text = "Direction"
 
 [node name="Direction3" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
 layout_mode = 2
-text = "S"
+text = "N"
 placeholder_text = "Direction"
 
 [node name="Direction4" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
 layout_mode = 2
-text = "W"
+text = "NE"
 placeholder_text = "Direction"
 
-[node name="MoreDirections" type="TextureButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
+[node name="Direction5" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
+layout_mode = 2
+text = "E"
+placeholder_text = "Direction"
+
+[node name="Direction6" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
+layout_mode = 2
+text = "SE"
+placeholder_text = "Direction"
+
+[node name="Direction7" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
+layout_mode = 2
+text = "S"
+placeholder_text = "Direction"
+
+[node name="Direction8" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
+layout_mode = 2
+text = "SW"
+placeholder_text = "Direction"
+
+[node name="More" type="TextureButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("3_6t5vf")
-texture_pressed = ExtResource("3_6t5vf")
-texture_hover = ExtResource("3_6t5vf")
-texture_focused = ExtResource("3_6t5vf")
+texture_normal = ExtResource("2_yb8tn")
+texture_pressed = ExtResource("2_yb8tn")
+texture_hover = ExtResource("2_yb8tn")
+texture_focused = ExtResource("2_yb8tn")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -109,18 +144,49 @@ size_flags_horizontal = 3
 [node name="Animations" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations"]
+[node name="Header" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations"]
 layout_mode = 2
-text = "Animations (in order)"
 
-[node name="MoreAnimations" type="TextureButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations"]
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations/Header"]
+custom_minimum_size = Vector2(195, 0)
+layout_mode = 2
+text = "Animation Name"
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations/Header"]
+custom_minimum_size = Vector2(83, 0)
+layout_mode = 2
+text = "Frames"
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations/Header"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Increment"
+
+[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations/Header"]
+custom_minimum_size = Vector2(152, 0)
+layout_mode = 2
+text = "Looping Mode"
+
+[node name="AnimationDetails" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations" instance=ExtResource("3_2748m")]
+layout_mode = 2
+
+[node name="AnimationDetails2" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations" instance=ExtResource("3_2748m")]
+layout_mode = 2
+
+[node name="AnimationDetails3" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations" instance=ExtResource("3_2748m")]
+layout_mode = 2
+
+[node name="AnimationDetails4" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations" instance=ExtResource("3_2748m")]
+layout_mode = 2
+
+[node name="More" type="TextureButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("3_6t5vf")
-texture_pressed = ExtResource("3_6t5vf")
-texture_hover = ExtResource("3_6t5vf")
-texture_focused = ExtResource("3_6t5vf")
+texture_normal = ExtResource("2_yb8tn")
+texture_pressed = ExtResource("2_yb8tn")
+texture_hover = ExtResource("2_yb8tn")
+texture_focused = ExtResource("2_yb8tn")
 ignore_texture_size = true
 stretch_mode = 5
 
