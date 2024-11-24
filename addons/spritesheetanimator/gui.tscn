@@ -31,13 +31,21 @@ size_flags_vertical = 3
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 50
+theme_override_constants/separation = 10
 
 [node name="SpriteScroll" type="ScrollContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 horizontal_scroll_mode = 0
 
 [node name="SpriteSelection" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer/SpriteScroll"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer/SpriteScroll/SpriteSelection"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Sprites to Animate:"
+
+[node name="V" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer/SpriteScroll/SpriteSelection"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer/SpriteScroll/SpriteSelection"]
@@ -49,10 +57,9 @@ autowrap_mode = 3
 [node name="Layout" type="OptionButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/SpriteScroll/SpriteSelection"]
 layout_mode = 2
 size_flags_vertical = 0
-item_count = 2
 selected = 0
+item_count = 2
 popup/item_0/text = "Horizontal"
-popup/item_0/id = 0
 popup/item_1/text = "Vertical"
 popup/item_1/id = 1
 
@@ -63,17 +70,16 @@ text = "Existing Animations:"
 [node name="Existing" type="OptionButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/SpriteScroll/SpriteSelection"]
 layout_mode = 2
 size_flags_vertical = 0
-item_count = 2
 selected = 0
-popup/item_0/text = "Overwrite"
-popup/item_0/id = 0
+item_count = 2
+popup/item_0/text = "Update"
 popup/item_1/text = "Skip"
 popup/item_1/id = 1
 
-[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer/SpriteScroll/SpriteSelection"]
-custom_minimum_size = Vector2(125, 0)
+[node name="Tracks" type="CheckButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/SpriteScroll/SpriteSelection"]
 layout_mode = 2
-text = "Sprites to Animate:"
+text = "Overrite 
+Other Tracks"
 
 [node name="DirectionsScroll" type="ScrollContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -86,42 +92,45 @@ layout_mode = 2
 layout_mode = 2
 text = "Directions"
 
-[node name="Direction" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
+[node name="V" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
+layout_mode = 2
+
+[node name="Direction" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions/V"]
 layout_mode = 2
 text = "W"
 placeholder_text = "Direction"
 
-[node name="Direction2" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
+[node name="Direction2" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions/V"]
 layout_mode = 2
 text = "NW"
 placeholder_text = "Direction"
 
-[node name="Direction3" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
+[node name="Direction3" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions/V"]
 layout_mode = 2
 text = "N"
 placeholder_text = "Direction"
 
-[node name="Direction4" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
+[node name="Direction4" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions/V"]
 layout_mode = 2
 text = "NE"
 placeholder_text = "Direction"
 
-[node name="Direction5" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
+[node name="Direction5" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions/V"]
 layout_mode = 2
 text = "E"
 placeholder_text = "Direction"
 
-[node name="Direction6" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
+[node name="Direction6" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions/V"]
 layout_mode = 2
 text = "SE"
 placeholder_text = "Direction"
 
-[node name="Direction7" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
+[node name="Direction7" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions/V"]
 layout_mode = 2
 text = "S"
 placeholder_text = "Direction"
 
-[node name="Direction8" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions"]
+[node name="Direction8" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/DirectionsScroll/Directions/V"]
 layout_mode = 2
 text = "SW"
 placeholder_text = "Direction"
@@ -148,7 +157,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations/Header"]
-custom_minimum_size = Vector2(195, 0)
+custom_minimum_size = Vector2(145, 0)
 layout_mode = 2
 text = "Animation Name"
 
@@ -167,16 +176,19 @@ custom_minimum_size = Vector2(152, 0)
 layout_mode = 2
 text = "Looping Mode"
 
-[node name="AnimationDetails" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations" instance=ExtResource("3_2748m")]
+[node name="V" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations"]
 layout_mode = 2
 
-[node name="AnimationDetails2" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations" instance=ExtResource("3_2748m")]
+[node name="AnimationDetails" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations/V" instance=ExtResource("3_2748m")]
 layout_mode = 2
 
-[node name="AnimationDetails3" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations" instance=ExtResource("3_2748m")]
+[node name="AnimationDetails2" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations/V" instance=ExtResource("3_2748m")]
 layout_mode = 2
 
-[node name="AnimationDetails4" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations" instance=ExtResource("3_2748m")]
+[node name="AnimationDetails3" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations/V" instance=ExtResource("3_2748m")]
+layout_mode = 2
+
+[node name="AnimationDetails4" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations/V" instance=ExtResource("3_2748m")]
 layout_mode = 2
 
 [node name="More" type="TextureButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/AnimationsScroll/Animations"]
@@ -190,8 +202,49 @@ texture_focused = ExtResource("2_yb8tn")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Animate" type="Button" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 75)
+[node name="SaveScroll" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Animate" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer/SaveScroll"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Create Animations"
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer/SaveScroll"]
+layout_mode = 2
+text = "Saved Options"
+
+[node name="Settings" type="OptionButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/SaveScroll"]
+layout_mode = 2
+
+[node name="H" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer/SaveScroll"]
+layout_mode = 2
+
+[node name="Load" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer/SaveScroll/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Load"
+alignment = 0
+
+[node name="Delete" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer/SaveScroll/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Delete"
+alignment = 0
+
+[node name="Spacing" type="Control" parent="ScrollContainer/VBoxContainer/HBoxContainer/SaveScroll"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="SaveName" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer/SaveScroll"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+placeholder_text = "Setup Name"
+
+[node name="Save" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer/SaveScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save"
+alignment = 0
